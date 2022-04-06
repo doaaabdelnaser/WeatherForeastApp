@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.app.weatherforeastapp.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_favourit"
+        android:name="com.app.weatherforeastapp.ui.favourit.FavouritFragment"
+        android:label="Favourit"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_favourit_to_nav_map"
+            app:destination="@id/nav_map" />
+        <action
+            android:id="@+id/action_nav_favourit_to_nav_fav_details"
+            app:destination="@id/nav_fav_details" />
+
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.app.weatherforeastapp.ui.setting.SettingFragment"
+        android:label="Setting"
+        tools:layout="@layout/fragment_setting" >
+
+        <action
+            android:id="@+id/action_nav_setting_to_nav_map"
+            app:destination="@id/nav_map"
+            />
+
+    </fragment>
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="com.app.weatherforeastapp.MapsFragment"
+        android:label="Map"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_nav_map_to_nav_favourit"
+            app:destination="@id/nav_favourit"
+            />
+        <action
+            android:id="@+id/action_Fragment_to_nav_home"
+            app:destination="@id/nav_home"
+            />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/nav_fav_details"
+        android:name="com.app.weatherforeastapp.FavouritDetails"
+        android:label="DetailsFavourit"
+        tools:layout="@layout/fragment_favourit_details" />
+    <fragment
+        android:id="@+id/nav_add_alart"
+        android:name="com.app.weatherforeastapp.AddAlarmFragment"
+        android:label="AddAlart"
+        tools:layout="@layout/fragment_add_alarm" >
+        <action
+            android:id="@+id/action_nav_add_alart_to_nav_alart"
+            app:destination="@id/nav_alart" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_alart"
+        android:name="com.app.weatherforeastapp.AlartFragment"
+        android:label="Alart" >
+        <action
+            android:id="@+id/action_nav_alart_to_nav_add_alart"
+            app:destination="@id/nav_add_alart" />
+    </fragment>
+</navigation>
